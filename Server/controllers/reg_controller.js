@@ -18,12 +18,13 @@ const register = async (req, res) => {
         const userExist = await User.findOne({ rollNo: rollNo });
 
         if(userExist) {
-            return res.status(400).json({ msg: "Roll Number already enrolled" })
+            return res.status(400).send("Roll Number already enrolled")
         }
 
         const userCreated = await User.create({ username, rollNo, phone, branch });
 
-        res.status(200).json(userCreated);
+        res.status(200).send("Thank You");
+
     }   catch (err) {
         next(err);
     }
