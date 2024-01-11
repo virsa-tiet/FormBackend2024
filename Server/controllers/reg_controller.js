@@ -23,7 +23,7 @@ const register = async (req, res) => {
 
         const userCreated = await User.create({ username, rollNo, phone, branch });
 
-        res.status(200).send("Thank You");
+        res.status(200).send("<h1>Thank You</h1>");
 
     }   catch (err) {
         next(err);
